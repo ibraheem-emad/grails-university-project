@@ -39,21 +39,26 @@ class EnrollmentController {
         redirect action: 'index'
     }
 
-    // Step 9: manual GPA test
     def gpaTest(Long id) {
         double gpa = enrollmentService.calculateGpa(id)
         render "GPA for student ${id}: ${gpa}"
     }
 
-    // Step 3: rollback test
     def rollbackTest(Long studentId, Long courseId) {
-        long before = enrollmentService.countEnrollments()
-        try {
-            enrollmentService.rollbackTest(studentId, courseId)
-        } catch (Exception ex) {
-            log.error("rollbackTest failed: ${ex.message}")
-        }
-        long after = enrollmentService.countEnrollments()
-        render "Before: ${before}, after: ${after}. " + (before == after ? "Rolled back correctly." : "NOT rolled back!")
+    if (enrollmentService.isEnrolled(studentId, courseId)) {
+        render "Already enrolled. Pick a student and course that are not enrolled together, otherwise nothing is saved and there is nothing to roll back."
+        return
+    }
+    long before = enrollmentService.countEnrollments()
+    String reason = ""
+    try {
+        enrollmentService.rollbackTest(studentId, courseId)
+    } catch (Exception ex) {
+        log.error("rollbackTest failed: ${ex.message}")
+        reason = ex.message
+    }
+    long after = enrollmentService.countEnrollments()
+    boolean stillEnrolled = enrollmentService.isEnrolled(studentId, courseId)
+    render "Before: ${before}, after: ${after}, enrolled after test: ${stillEnrolled}. Reason: ${reason}"
     }
 }

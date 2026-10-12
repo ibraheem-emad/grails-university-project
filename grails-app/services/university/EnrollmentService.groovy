@@ -44,6 +44,14 @@ class EnrollmentService {
         }
     }
 
+    @Transactional(readOnly = true)
+boolean isEnrolled(Long studentId, Long courseId) {
+    log.info("isEnrolled called: studentId=${studentId}, courseId=${courseId}")
+    Student student = Student.get(studentId)
+    Course course = Course.get(courseId)
+    student && course && Enrollment.findByStudentAndCourse(student, course) != null
+}
+
     @Transactional
     void unenroll(Long enrollmentId) {
         log.info("unenroll called: enrollmentId=${enrollmentId}")
