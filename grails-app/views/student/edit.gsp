@@ -40,7 +40,7 @@
                 <g:form resource="${this.student}" controller="${controllerName}" method="PUT">
                     <g:hiddenField name="version" value="${this.student?.version}" />
                     <fieldset class="form">
-                        <f:all bean="student" class="row" requiredClass="mb-3 required" labelClass="col-sm-2 col-form-label text-sm-end" divClass="col-sm-10" widget-class="form-control" widget-invalidClass="is-invalid" widget-selectDateClass="w-auto form-select d-inline" widget-checkBoxClass="form-check-input align-middle" />
+                           <g:render template="form" model="[student: student]"/>
                     </fieldset>
                     <fieldset class="bg-body-tertiary">
                         <button class="btn btn-outline-primary" type="submit">

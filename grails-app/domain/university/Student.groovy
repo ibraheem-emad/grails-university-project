@@ -5,6 +5,7 @@ class Student {
     String name
     String email
     String studentNumber
+    boolean active = true
     
     static hasMany = [enrollments: Enrollment]
 
