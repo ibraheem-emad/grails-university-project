@@ -39,7 +39,7 @@ class EnrollmentController {
         redirect action: 'index'
     }
 
-    def gpaTest(Long id) {
+    def calculateGpa(Long id) {
         double gpa = enrollmentService.calculateGpa(id)
         render "GPA for student ${id}: ${gpa}"
     }
