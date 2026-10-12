@@ -31,6 +31,22 @@
                     <div class="alert alert-primary" role="alert"><i class="bi-info-circle"></i> ${flash.message}</div>
                 </g:if>
                 <f:display bean="student" listClass="container" listItemClass="row mb-3" labelClass="form-label col-sm-3 text-sm-end" valueClass="col-sm-9" />
+                <h3 class="mt-4">Enrolled Courses</h3>
+                <g:if test="${student.enrollments}">
+                    <table class="table table-sm">
+                        <tr><th>Course</th><th>Code</th><th>Grade</th></tr>
+                        <g:each in="${student.enrollments.sort { it.course.title }}" var="e">
+                            <tr>
+                                <td><g:link controller="course" action="show" id="${e.course.id}">${e.course.title}</g:link></td>
+                                <td>${e.course.code}</td>
+                                <td>${e.grade ?: '-'}</td>
+                            </tr>
+                        </g:each>
+                    </table>
+                </g:if>
+                <g:else>
+                    <p>Not enrolled in any courses yet.</p>
+                </g:else>
                 <g:form resource="${this.student}" controller="${controllerName}" method="DELETE">
                     <fieldset class="bg-body-tertiary">
                         <g:link class="btn btn-outline-primary" action="edit" resource="${this.student}" controller="${controllerName}">
