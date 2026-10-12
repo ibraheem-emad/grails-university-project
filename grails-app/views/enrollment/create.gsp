@@ -23,7 +23,7 @@
         </div>
         <div class="mb-3">
             <label>Grade (optional)</label>
-            <g:textField name="grade" class="form-control"/>
+           <g:field type="number" name="grade" min="0" max="4" step="0.01" class="form-control"/>
         </div>
         <g:submitButton name="enroll" value="Enroll" class="btn btn-primary"/>
         <g:link action="index" class="btn btn-secondary">Back to list</g:link>

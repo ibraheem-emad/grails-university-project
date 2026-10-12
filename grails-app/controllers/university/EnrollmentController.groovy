@@ -1,55 +1,59 @@
 package university
 
-import grails.gorm.transactions.Transactional
-
 class EnrollmentController {
+
+    EnrollmentService enrollmentService
+    StudentService studentService
+    CourseService courseService
 
     static allowedMethods = [save: "POST"]
 
     def index() {
-        [enrollmentList: Enrollment.list(sort: 'enrolledAt', order: 'desc')]
+        [enrollmentList: enrollmentService.listEnrollments()]
     }
 
     def create() {
-        [students: Student.list(sort: 'name'), courses: Course.list(sort: 'title')]
+        [students: studentService.list(sort: 'name'), courses: courseService.list(sort: 'title')]
     }
 
-    @Transactional
     def save() {
-        def student = Student.get(params.long('student'))
-        def course = Course.get(params.long('course'))
-
-        if (!student || !course) {
-            flash.message = "Please choose a student and a course."
+        try {
+            def e = enrollmentService.enroll(params.long('student'), params.long('course'), params.double('grade'))
+            flash.message = "Enrolled ${e.student.name} in ${e.course.title}."
+            redirect action: 'index'
+        } catch (Exception ex) {
+            log.error("save failed: ${ex.message}")
+            flash.message = ex.message
             redirect action: 'create'
-            return
         }
+    }
 
-        if (Enrollment.findByStudentAndCourse(student, course)) {
-            flash.message = "${student.name} is already enrolled in ${course.title}."
-            redirect action: 'create'
-            return
+    def delete(Long id) {
+        try {
+            enrollmentService.unenroll(id)
+            flash.message = "Enrollment removed."
+        } catch (Exception ex) {
+            log.error("delete failed: ${ex.message}")
+            flash.message = ex.message
         }
-
-        def enrollment = new Enrollment(student: student, course: course, grade: params.grade)
-        if (!enrollment.save(flush: true)) {
-            flash.message = "Could not save the enrollment."
-            redirect action: 'create'
-            return
-        }
-
-        flash.message = "Enrolled ${student.name} in ${course.title}."
         redirect action: 'index'
     }
-    @Transactional
-    def delete(Long id) {   
-        def enrollment = Enrollment.get(id)
-        if (enrollment) {
-            enrollment.student.removeFromEnrollments(enrollment)
-            enrollment.course.removeFromEnrollments(enrollment)
-            enrollment.delete(flush: true)
-            flash.message = "Enrollment removed."
+
+    // Step 9: manual GPA test
+    def gpaTest(Long id) {
+        double gpa = enrollmentService.calculateGpa(id)
+        render "GPA for student ${id}: ${gpa}"
+    }
+
+    // Step 3: rollback test
+    def rollbackTest(Long studentId, Long courseId) {
+        long before = enrollmentService.countEnrollments()
+        try {
+            enrollmentService.rollbackTest(studentId, courseId)
+        } catch (Exception ex) {
+            log.error("rollbackTest failed: ${ex.message}")
         }
-        redirect action: 'index'
+        long after = enrollmentService.countEnrollments()
+        render "Before: ${before}, after: ${after}. " + (before == after ? "Rolled back correctly." : "NOT rolled back!")
     }
 }

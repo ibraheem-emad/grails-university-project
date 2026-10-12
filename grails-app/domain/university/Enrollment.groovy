@@ -1,11 +1,12 @@
 package university
 
 class Enrollment {
-    String grade
+    Double grade
     Date enrolledAt = new Date()
 
     static belongsTo = [student: Student, course: Course]
 
     static constraints = {
+        grade nullable: true, min: 0d, max: 4d
     }
 }

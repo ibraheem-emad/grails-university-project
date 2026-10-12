@@ -6,6 +6,7 @@ import static org.springframework.http.HttpStatus.*
 class StudentController {
 
     StudentService studentService
+    EnrollmentService enrollmentService
 
     static allowedMethods = [save: "POST", update: "PUT", delete: "DELETE"]
 
@@ -29,7 +30,7 @@ class StudentController {
     }    
 
     def show(Long id) {
-        respond studentService.get(id)
+        respond studentService.get(id), model: [gpa: enrollmentService.calculateGpa(id)]
     }
 
     def create() {
