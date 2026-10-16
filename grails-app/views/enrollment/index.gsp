@@ -16,7 +16,7 @@
                 <td>${e.student.name}</td>
                 <td>${e.course.title}</td>
                 <td>${e.grade}</td>
-                <td><g:formatDate date="${e.enrolledAt}" format="yyyy-MM-dd"/></td>
+                <td><g:formatDate date="${e.enrolledAt}" format="dd-MM-yyyy"/></td>
                 <td>
                     <g:link action="delete" id="${e.id}" class="text-danger"
                             onclick="return confirm('${message(code: 'default.button.delete.confirm.message', default: 'Are you sure?')}');">
