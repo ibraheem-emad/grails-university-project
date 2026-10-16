@@ -22,6 +22,7 @@
             </button>
             <div class="collapse navbar-collapse" id="mainNav">
                 <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><g:link class="nav-link ${controllerName == 'dashboard' ? 'active' : ''}" controller="dashboard">Dashboard</g:link></li>
                     <li class="nav-item"><g:link class="nav-link ${controllerName == 'student' ? 'active' : ''}" controller="student">Students</g:link></li>
                     <li class="nav-item"><g:link class="nav-link ${controllerName == 'course' ? 'active' : ''}" controller="course">Courses</g:link></li>
                     <li class="nav-item"><g:link class="nav-link ${controllerName == 'enrollment' ? 'active' : ''}" controller="enrollment">Enrollments</g:link></li>
