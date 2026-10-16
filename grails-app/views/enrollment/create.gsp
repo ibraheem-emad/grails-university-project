@@ -7,9 +7,7 @@
 <body>
 <div class="container">
     <h1>New Enrollment</h1>
-    <g:if test="${flash.message}">
-        <div class="alert alert-warning">${flash.message}</div>
-    </g:if>
+    <g:render template="/flash"/>
     <g:form action="save">
         <div class="mb-3">
             <label>Student</label>

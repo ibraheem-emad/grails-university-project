@@ -27,13 +27,7 @@
                 <g:if test="${flash.message}">
                     <div class="message" role="status">${flash.message}</div>
                 </g:if>
-                <g:hasErrors bean="${this.student}">
-                    <ul class="alert alert-danger list-unstyled" role="alert">
-                        <g:eachError bean="${this.student}" var="error">
-                            <li <g:if test="${error in org.springframework.validation.FieldError}">data-field-id="${error.field}"</g:if>><i class="bi-exclamation-circle"></i> <g:message error="${error}"/></li>
-                        </g:eachError>
-                    </ul>
-                </g:hasErrors>
+                
                 <g:form resource="${this.student}" controller="${controllerName}" method="POST">
                     <fieldset class="form">
                            <g:render template="form" model="[student: student]"/>

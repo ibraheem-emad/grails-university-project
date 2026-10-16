@@ -23,7 +23,7 @@ class EnrollmentController {
             redirect action: 'index'
         } catch (Exception ex) {
             log.error("save failed: ${ex.message}")
-            flash.message = ex.message
+            flash.error = ex.message
             redirect action: 'create'
         }
     }
@@ -34,7 +34,7 @@ class EnrollmentController {
             flash.message = "Enrollment removed."
         } catch (Exception ex) {
             log.error("delete failed: ${ex.message}")
-            flash.message = ex.message
+            flash.error = ex.message
         }
         redirect action: 'index'
     }

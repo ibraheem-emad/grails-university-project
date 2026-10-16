@@ -25,9 +25,7 @@
             <div id="list-${propertyName}" class="col-12 content scaffold-list" role="main">
                 <h1>
                     <g:message code="default.list.label" args="[entityName]" /></h1>
-                <g:if test="${flash.message}">
-                    <div class="alert alert-primary" role="alert"><i class="bi-info-circle"></i> ${flash.message}</div>
-                </g:if>
+                <g:render template="/flash"/>
 
                 <g:form action="index" method="GET" class="mb-3">
                     <g:textField name="search" value="${params.search}" placeholder="Search by name"/>

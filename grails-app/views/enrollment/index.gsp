@@ -7,9 +7,7 @@
 <body>
 <div class="container">
     <h1>Enrollments</h1>
-    <g:if test="${flash.message}">
-        <div class="alert alert-primary">${flash.message}</div>
-    </g:if>
+    <g:render template="/flash"/>
     <g:link action="create" class="btn btn-primary mb-3">New Enrollment</g:link>
     <table class="table table-striped table-sm">
         <tr><th>Student</th><th>Course</th><th>Grade</th><th>Enrolled</th><th></th></tr>
