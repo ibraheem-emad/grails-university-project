@@ -8,7 +8,8 @@ class DashboardController {
 
     def index() {
         [studentCount   : studentService.count(),
-         courseCount    : courseService.count(),
-         enrollmentCount: enrollmentService.countEnrollments()]
+        courseCount    : courseService.count(),
+        enrollmentCount: enrollmentService.countEnrollments(),
+        recentStudents : studentService.list(max: 4, sort: 'id', order: 'desc')]
     }
 }

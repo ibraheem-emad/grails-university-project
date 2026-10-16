@@ -42,5 +42,13 @@
         </div>
     </div>
 </div>
+<h2 class="h4 mt-5 mb-3">Newest Students</h2>
+<div class="row g-3">
+    <g:each in="${recentStudents}" var="s">
+        <div class="col-12 col-sm-6 col-lg-3">
+            <g:render template="studentCard" model="[student: s]"/>
+        </div>
+    </g:each>
+</div>
 </body>
 </html>
