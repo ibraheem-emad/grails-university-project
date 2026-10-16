@@ -33,16 +33,18 @@
                 <f:display bean="course" listClass="container" listItemClass="row mb-3" labelClass="form-label col-sm-3 text-sm-end" valueClass="col-sm-9" />
                 <h3 class="mt-4">Enrolled Students</h3>
                 <g:if test="${course.enrollments}">
-                    <table class="table table-sm">
-                        <tr><th>Student</th><th>Email</th><th>Grade</th></tr>
-                        <g:each in="${course.enrollments.sort { it.student.name }}" var="e">
-                            <tr>
-                                <td><g:link controller="student" action="show" id="${e.student.id}">${e.student.name}</g:link></td>
-                                <td>${e.student.email}</td>
-                                <td>${e.grade ?: '-'}</td>
-                            </tr>
-                        </g:each>
-                    </table>
+                    <div class="table-responsive">
+                        <table class="table table-sm">
+                            <tr><th>Student</th><th>Email</th><th>Grade</th></tr>
+                            <g:each in="${course.enrollments.sort { it.student.name }}" var="e">
+                                <tr>
+                                    <td><g:link controller="student" action="show" id="${e.student.id}">${e.student.name}</g:link></td>
+                                    <td>${e.student.email}</td>
+                                    <td>${e.grade ?: '-'}</td>
+                                </tr>
+                            </g:each>
+                        </table>
+                    </div>
                 </g:if>
                 <g:else>
                     <p>No students enrolled yet.</p>

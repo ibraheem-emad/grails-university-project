@@ -34,16 +34,18 @@
                 <p class="mt-3"><strong>GPA:</strong> <g:formatNumber number="${gpa}" format="0.00"/></p>
                 <h3 class="mt-4">Enrolled Courses</h3>
                 <g:if test="${student.enrollments}">
-                    <table class="table table-sm">
-                        <tr><th>Course</th><th>Code</th><th>Grade</th></tr>
-                        <g:each in="${student.enrollments.sort { it.course.title }}" var="e">
-                            <tr>
-                                <td><g:link controller="course" action="show" id="${e.course.id}">${e.course.title}</g:link></td>
-                                <td>${e.course.code}</td>
-                                <td>${e.grade ?: '-'}</td>
-                            </tr>
-                        </g:each>
-                    </table>
+                    <div class="table-responsive">
+                        <table class="table table-sm">
+                            <tr><th>Course</th><th>Code</th><th>Grade</th></tr>
+                            <g:each in="${student.enrollments.sort { it.course.title }}" var="e">
+                                <tr>
+                                    <td><g:link controller="course" action="show" id="${e.course.id}">${e.course.title}</g:link></td>
+                                    <td>${e.course.code}</td>
+                                    <td>${e.grade ?: '-'}</td>
+                                </tr>
+                            </g:each>
+                            </table>
+                        </div>
                 </g:if>
                 <g:else>
                     <p>Not enrolled in any courses yet.</p>

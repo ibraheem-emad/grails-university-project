@@ -26,7 +26,12 @@
                 <h1>
                     <g:message code="default.list.label" args="[entityName]" /></h1>
                 <g:render template="/flash"/>
-                <f:table class="scaffold table table-striped table-sm" controller="${controllerName}" collection="${courseList}"/>
+
+                <div class="table-responsive">
+                    <div class="table-responsive">
+                        <f:table class="scaffold table table-striped table-sm" controller="${controllerName}" collection="${courseList}" properties="['title', 'code', 'creditHours']"/>
+                    </div>
+                </div>
 
                 <g:if test="${courseCount > params.int('max')}">
                     <div class="btn-toolbar mb-3" role="toolbar" aria-label="Toolbar with button groups">

@@ -32,7 +32,9 @@
                     <g:submitButton name="go" value="Search" class="btn btn-primary btn-sm"/>
                 </g:form>
 
-                <f:table class="scaffold table table-striped table-sm" controller="${controllerName}" collection="${studentList}" properties="['name', 'email']"/>
+                <div class="table-responsive">
+                    <f:table class="scaffold table table-striped table-sm" controller="${controllerName}" collection="${studentList}" properties="['name', 'email']"/>
+                </div>
 
                 <g:if test="${studentCount > params.int('max')}">
                     <div class="btn-toolbar mb-3" role="toolbar" aria-label="Toolbar with button groups">
