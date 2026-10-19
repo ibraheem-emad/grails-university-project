@@ -1,0 +1,1542 @@
+{
+  "info": {
+    "_postman_id": "2cd18349-2112-4419-85e6-e1c683711cc0",
+    "name": "University API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "59051521"
+  },
+  "item": [
+    {
+      "name": "Students",
+      "item": [
+        {
+          "name": "List students",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/api/students",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "api",
+                "students"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "List students",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "http://localhost:8080/api/students",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "8080",
+                  "path": [
+                    "api",
+                    "students"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "JSON",
+              "header": [
+                {
+                  "key": "Vary",
+                  "value": "Origin",
+                  "type": "text"
+                },
+                {
+                  "key": "Vary",
+                  "value": "Access-Control-Request-Method",
+                  "type": "text"
+                },
+                {
+                  "key": "Vary",
+                  "value": "Access-Control-Request-Headers",
+                  "type": "text"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json;charset=UTF-8",
+                  "type": "text"
+                },
+                {
+                  "key": "Transfer-Encoding",
+                  "value": "chunked",
+                  "type": "text"
+                },
+                {
+                  "key": "Date",
+                  "value": "Mon, 19 Oct 2026 07:32:08 GMT",
+                  "type": "text"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=60",
+                  "type": "text"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive",
+                  "type": "text"
+                }
+              ],
+              "cookie": [],
+              "body": "[\n    {\n        \"id\": 2,\n        \"name\": \"ibraheem\",\n        \"email\": \"ibraheemimad123@gmail.com\",\n        \"studentNumber\": \"535\",\n        \"active\": false,\n        \"enrollments\": [\n            {\n                \"id\": 1\n            },\n            {\n                \"id\": 2\n            }\n        ]\n    },\n    {\n        \"id\": 4,\n        \"name\": \"ali\",\n        \"email\": \"ali@gmail.com\",\n        \"studentNumber\": \"10\",\n        \"active\": true,\n        \"enrollments\": []\n    },\n    {\n        \"id\": 5,\n        \"name\": \"ahmad\",\n        \"email\": \"ahmad@gmail.com\",\n        \"studentNumber\": \"11\",\n        \"active\": true,\n        \"enrollments\": []\n    },\n    {\n        \"id\": 6,\n        \"name\": \"new\",\n        \"email\": \"newgmail@gmail.com\",\n        \"studentNumber\": \"3\",\n        \"active\": true,\n        \"enrollments\": [\n            {\n                \"id\": 7\n            }\n        ]\n    }\n]"
+            }
+          ]
+        },
+        {
+          "name": "Get student",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/api/students/2",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "api",
+                "students",
+                "2"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "Get student",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "http://localhost:8080/api/students/2",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "8080",
+                  "path": [
+                    "api",
+                    "students",
+                    "2"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "JSON",
+              "header": [
+                {
+                  "key": "Vary",
+                  "value": "Origin",
+                  "type": "text"
+                },
+                {
+                  "key": "Vary",
+                  "value": "Access-Control-Request-Method",
+                  "type": "text"
+                },
+                {
+                  "key": "Vary",
+                  "value": "Access-Control-Request-Headers",
+                  "type": "text"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json;charset=UTF-8",
+                  "type": "text"
+                },
+                {
+                  "key": "Transfer-Encoding",
+                  "value": "chunked",
+                  "type": "text"
+                },
+                {
+                  "key": "Date",
+                  "value": "Mon, 19 Oct 2026 10:20:58 GMT",
+                  "type": "text"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=60",
+                  "type": "text"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive",
+                  "type": "text"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"id\": 2,\n    \"name\": \"ibraheem\",\n    \"email\": \"ibraheemimad123@gmail.com\",\n    \"studentNumber\": \"535\",\n    \"active\": false,\n    \"gpa\": 3.5,\n    \"courses\": [\n        {\n            \"id\": 1,\n            \"title\": \"test\",\n            \"code\": \"31\",\n            \"creditHours\": 6,\n            \"grade\": 3,\n            \"enrolledAt\": \"2026-10-12T09:10:12.889Z\"\n        },\n        {\n            \"id\": 2,\n            \"title\": \"test2\",\n            \"code\": \"32\",\n            \"creditHours\": 3,\n            \"grade\": 4,\n            \"enrolledAt\": \"2026-10-12T09:10:24.632Z\"\n        }\n    ]\n}"
+            }
+          ]
+        },
+        {
+          "name": "Create student",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "   {\r\n     \"name\": \"Postman Test\",\r\n     \"email\": \"postman@test.com\",\r\n     \"studentNumber\": \"9001\",\r\n     \"active\": true\r\n   }",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:8080/api/students",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "api",
+                "students"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "Create student",
+              "originalRequest": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "   {\r\n     \"name\": \"Postman Test\",\r\n     \"email\": \"postman@test.com\",\r\n     \"studentNumber\": \"9001\",\r\n     \"active\": true\r\n   }",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "http://localhost:8080/api/students",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "8080",
+                  "path": [
+                    "api",
+                    "students"
+                  ]
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "_postman_previewlanguage": "JSON",
+              "header": [
+                {
+                  "key": "Vary",
+                  "value": "Origin",
+                  "type": "text"
+                },
+                {
+                  "key": "Vary",
+                  "value": "Access-Control-Request-Method",
+                  "type": "text"
+                },
+                {
+                  "key": "Vary",
+                  "value": "Access-Control-Request-Headers",
+                  "type": "text"
+                },
+                {
+                  "key": "Location",
+                  "value": "http://localhost:8080/api/students/8",
+                  "type": "text"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json;charset=UTF-8",
+                  "type": "text"
+                },
+                {
+                  "key": "Transfer-Encoding",
+                  "value": "chunked",
+                  "type": "text"
+                },
+                {
+                  "key": "Date",
+                  "value": "Mon, 19 Oct 2026 07:33:41 GMT",
+                  "type": "text"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=60",
+                  "type": "text"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive",
+                  "type": "text"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"id\": 8,\n    \"name\": \"Postman Test\",\n    \"email\": \"postman@test.com\",\n    \"studentNumber\": \"9001\",\n    \"active\": true,\n    \"enrollments\": null\n}"
+            }
+          ]
+        },
+        {
+          "name": "Update student",
+          "request": {
+            "method": "PUT",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "   { \"name\": \"Postman Test Updated\" }",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:8080/api/students/8",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "api",
+                "students",
+                "8"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "Update student",
+              "originalRequest": {
+                "method": "PUT",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "   { \"name\": \"Postman Test Updated\" }",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "http://localhost:8080/api/students/8",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "8080",
+                  "path": [
+                    "api",
+                    "students",
+                    "8"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "JSON",
+              "header": [
+                {
+                  "key": "Vary",
+                  "value": "Origin",
+                  "type": "text"
+                },
+                {
+                  "key": "Vary",
+                  "value": "Access-Control-Request-Method",
+                  "type": "text"
+                },
+                {
+                  "key": "Vary",
+                  "value": "Access-Control-Request-Headers",
+                  "type": "text"
+                },
+                {
+                  "key": "Location",
+                  "value": "http://localhost:8080/api/students/8",
+                  "type": "text"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json;charset=UTF-8",
+                  "type": "text"
+                },
+                {
+                  "key": "Transfer-Encoding",
+                  "value": "chunked",
+                  "type": "text"
+                },
+                {
+                  "key": "Date",
+                  "value": "Mon, 19 Oct 2026 07:35:27 GMT",
+                  "type": "text"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=60",
+                  "type": "text"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive",
+                  "type": "text"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"id\": 8,\n    \"name\": \"Postman Test Updated\",\n    \"email\": \"postman@test.com\",\n    \"studentNumber\": \"9001\",\n    \"active\": true,\n    \"enrollments\": []\n}"
+            }
+          ]
+        },
+        {
+          "name": "Delete student",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/api/students/8",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "api",
+                "students",
+                "8"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "Delete student",
+              "originalRequest": {
+                "method": "DELETE",
+                "header": [],
+                "url": {
+                  "raw": "http://localhost:8080/api/students/8",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "8080",
+                  "path": [
+                    "api",
+                    "students",
+                    "8"
+                  ]
+                }
+              },
+              "status": "No Content",
+              "code": 204,
+              "_postman_previewlanguage": "Text",
+              "header": [
+                {
+                  "key": "Vary",
+                  "value": "Origin",
+                  "type": "text"
+                },
+                {
+                  "key": "Vary",
+                  "value": "Access-Control-Request-Method",
+                  "type": "text"
+                },
+                {
+                  "key": "Vary",
+                  "value": "Access-Control-Request-Headers",
+                  "type": "text"
+                },
+                {
+                  "key": "Date",
+                  "value": "Mon, 19 Oct 2026 07:35:45 GMT",
+                  "type": "text"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=60",
+                  "type": "text"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive",
+                  "type": "text"
+                }
+              ],
+              "cookie": [],
+              "body": ""
+            }
+          ]
+        },
+        {
+          "name": "student's courses",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/api/students/2/courses",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "api",
+                "students",
+                "2",
+                "courses"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "student's courses",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "http://localhost:8080/api/students/2/courses",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "8080",
+                  "path": [
+                    "api",
+                    "students",
+                    "2",
+                    "courses"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "JSON",
+              "header": [
+                {
+                  "key": "Vary",
+                  "value": "Origin",
+                  "type": "text"
+                },
+                {
+                  "key": "Vary",
+                  "value": "Access-Control-Request-Method",
+                  "type": "text"
+                },
+                {
+                  "key": "Vary",
+                  "value": "Access-Control-Request-Headers",
+                  "type": "text"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json;charset=UTF-8",
+                  "type": "text"
+                },
+                {
+                  "key": "Transfer-Encoding",
+                  "value": "chunked",
+                  "type": "text"
+                },
+                {
+                  "key": "Date",
+                  "value": "Mon, 19 Oct 2026 10:22:04 GMT",
+                  "type": "text"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=60",
+                  "type": "text"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive",
+                  "type": "text"
+                }
+              ],
+              "cookie": [],
+              "body": "[\n    {\n        \"id\": 1,\n        \"title\": \"test\",\n        \"code\": \"31\",\n        \"creditHours\": 6,\n        \"grade\": 3,\n        \"enrolledAt\": \"2026-10-12T09:10:12.889Z\"\n    },\n    {\n        \"id\": 2,\n        \"title\": \"test2\",\n        \"code\": \"32\",\n        \"creditHours\": 3,\n        \"grade\": 4,\n        \"enrolledAt\": \"2026-10-12T09:10:24.632Z\"\n    }\n]"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Courses",
+      "item": [
+        {
+          "name": "List courses",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/api/courses",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "api",
+                "courses"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "List courses",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "http://localhost:8080/api/courses",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "8080",
+                  "path": [
+                    "api",
+                    "courses"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "JSON",
+              "header": [
+                {
+                  "key": "Vary",
+                  "value": "Origin",
+                  "type": "text"
+                },
+                {
+                  "key": "Vary",
+                  "value": "Access-Control-Request-Method",
+                  "type": "text"
+                },
+                {
+                  "key": "Vary",
+                  "value": "Access-Control-Request-Headers",
+                  "type": "text"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json;charset=UTF-8",
+                  "type": "text"
+                },
+                {
+                  "key": "Transfer-Encoding",
+                  "value": "chunked",
+                  "type": "text"
+                },
+                {
+                  "key": "Date",
+                  "value": "Mon, 19 Oct 2026 07:37:36 GMT",
+                  "type": "text"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=60",
+                  "type": "text"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive",
+                  "type": "text"
+                }
+              ],
+              "cookie": [],
+              "body": "[\n    {\n        \"id\": 1,\n        \"title\": \"test\",\n        \"code\": \"31\",\n        \"creditHours\": 6,\n        \"enrollments\": [\n            {\n                \"id\": 1\n            },\n            {\n                \"id\": 7\n            }\n        ]\n    },\n    {\n        \"id\": 2,\n        \"title\": \"test2\",\n        \"code\": \"32\",\n        \"creditHours\": 3,\n        \"enrollments\": [\n            {\n                \"id\": 2\n            }\n        ]\n    }\n]"
+            }
+          ]
+        },
+        {
+          "name": "Get course",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/api/courses/2",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "api",
+                "courses",
+                "2"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "Get course",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "http://localhost:8080/api/courses/2",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "8080",
+                  "path": [
+                    "api",
+                    "courses",
+                    "2"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "JSON",
+              "header": [
+                {
+                  "key": "Vary",
+                  "value": "Origin",
+                  "type": "text"
+                },
+                {
+                  "key": "Vary",
+                  "value": "Access-Control-Request-Method",
+                  "type": "text"
+                },
+                {
+                  "key": "Vary",
+                  "value": "Access-Control-Request-Headers",
+                  "type": "text"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json;charset=UTF-8",
+                  "type": "text"
+                },
+                {
+                  "key": "Transfer-Encoding",
+                  "value": "chunked",
+                  "type": "text"
+                },
+                {
+                  "key": "Date",
+                  "value": "Mon, 19 Oct 2026 07:37:45 GMT",
+                  "type": "text"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=60",
+                  "type": "text"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive",
+                  "type": "text"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"id\": 2,\n    \"title\": \"test2\",\n    \"code\": \"32\",\n    \"creditHours\": 3,\n    \"enrollments\": [\n        {\n            \"id\": 2\n        }\n    ]\n}"
+            }
+          ]
+        },
+        {
+          "name": "Create course",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "  { \"title\": \"Postman Course\", \"code\": \"PM101\", \"creditHours\": 3 }",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:8080/api/courses",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "api",
+                "courses"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "Create course",
+              "originalRequest": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "  { \"title\": \"Postman Course\", \"code\": \"PM101\", \"creditHours\": 3 }",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "http://localhost:8080/api/courses",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "8080",
+                  "path": [
+                    "api",
+                    "courses"
+                  ]
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "_postman_previewlanguage": "JSON",
+              "header": [
+                {
+                  "key": "Vary",
+                  "value": "Origin",
+                  "type": "text"
+                },
+                {
+                  "key": "Vary",
+                  "value": "Access-Control-Request-Method",
+                  "type": "text"
+                },
+                {
+                  "key": "Vary",
+                  "value": "Access-Control-Request-Headers",
+                  "type": "text"
+                },
+                {
+                  "key": "Location",
+                  "value": "http://localhost:8080/api/courses/5",
+                  "type": "text"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json;charset=UTF-8",
+                  "type": "text"
+                },
+                {
+                  "key": "Transfer-Encoding",
+                  "value": "chunked",
+                  "type": "text"
+                },
+                {
+                  "key": "Date",
+                  "value": "Mon, 19 Oct 2026 07:37:52 GMT",
+                  "type": "text"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=60",
+                  "type": "text"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive",
+                  "type": "text"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"id\": 5,\n    \"title\": \"Postman Course\",\n    \"code\": \"PM101\",\n    \"creditHours\": 3,\n    \"enrollments\": null\n}"
+            }
+          ]
+        },
+        {
+          "name": "Update course",
+          "request": {
+            "method": "PUT",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "  { \"creditHours\": 4 }",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:8080/api/courses/5",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "api",
+                "courses",
+                "5"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "Update course",
+              "originalRequest": {
+                "method": "PUT",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "  { \"creditHours\": 4 }",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "http://localhost:8080/api/courses/5",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "8080",
+                  "path": [
+                    "api",
+                    "courses",
+                    "5"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "JSON",
+              "header": [
+                {
+                  "key": "Vary",
+                  "value": "Origin",
+                  "type": "text"
+                },
+                {
+                  "key": "Vary",
+                  "value": "Access-Control-Request-Method",
+                  "type": "text"
+                },
+                {
+                  "key": "Vary",
+                  "value": "Access-Control-Request-Headers",
+                  "type": "text"
+                },
+                {
+                  "key": "Location",
+                  "value": "http://localhost:8080/api/courses/5",
+                  "type": "text"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json;charset=UTF-8",
+                  "type": "text"
+                },
+                {
+                  "key": "Transfer-Encoding",
+                  "value": "chunked",
+                  "type": "text"
+                },
+                {
+                  "key": "Date",
+                  "value": "Mon, 19 Oct 2026 07:38:04 GMT",
+                  "type": "text"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=60",
+                  "type": "text"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive",
+                  "type": "text"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"id\": 5,\n    \"title\": \"Postman Course\",\n    \"code\": \"PM101\",\n    \"creditHours\": 4,\n    \"enrollments\": []\n}"
+            }
+          ]
+        },
+        {
+          "name": "Delete course",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/api/courses/5",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "api",
+                "courses",
+                "5"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "Delete course",
+              "originalRequest": {
+                "method": "DELETE",
+                "header": [],
+                "url": {
+                  "raw": "http://localhost:8080/api/courses/5",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "8080",
+                  "path": [
+                    "api",
+                    "courses",
+                    "5"
+                  ]
+                }
+              },
+              "status": "No Content",
+              "code": 204,
+              "_postman_previewlanguage": "Text",
+              "header": [
+                {
+                  "key": "Vary",
+                  "value": "Origin",
+                  "type": "text"
+                },
+                {
+                  "key": "Vary",
+                  "value": "Access-Control-Request-Method",
+                  "type": "text"
+                },
+                {
+                  "key": "Vary",
+                  "value": "Access-Control-Request-Headers",
+                  "type": "text"
+                },
+                {
+                  "key": "Date",
+                  "value": "Mon, 19 Oct 2026 08:34:28 GMT",
+                  "type": "text"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=60",
+                  "type": "text"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive",
+                  "type": "text"
+                }
+              ],
+              "cookie": [],
+              "body": ""
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Enrollments",
+      "item": [
+        {
+          "name": "List enrollments",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/api/enrollments",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "api",
+                "enrollments"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "List enrollments",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "http://localhost:8080/api/enrollments",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "8080",
+                  "path": [
+                    "api",
+                    "enrollments"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "JSON",
+              "header": [
+                {
+                  "key": "Vary",
+                  "value": "Origin",
+                  "type": "text"
+                },
+                {
+                  "key": "Vary",
+                  "value": "Access-Control-Request-Method",
+                  "type": "text"
+                },
+                {
+                  "key": "Vary",
+                  "value": "Access-Control-Request-Headers",
+                  "type": "text"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json;charset=UTF-8",
+                  "type": "text"
+                },
+                {
+                  "key": "Transfer-Encoding",
+                  "value": "chunked",
+                  "type": "text"
+                },
+                {
+                  "key": "Date",
+                  "value": "Mon, 19 Oct 2026 08:03:34 GMT",
+                  "type": "text"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=60",
+                  "type": "text"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive",
+                  "type": "text"
+                }
+              ],
+              "cookie": [],
+              "body": "[\n    {\n        \"id\": 1,\n        \"grade\": 3,\n        \"enrolledAt\": \"2026-10-12T09:10:12.889Z\",\n        \"student\": {\n            \"id\": 2\n        },\n        \"course\": {\n            \"id\": 1\n        }\n    },\n    {\n        \"id\": 2,\n        \"grade\": 4,\n        \"enrolledAt\": \"2026-10-12T09:10:24.632Z\",\n        \"student\": {\n            \"id\": 2\n        },\n        \"course\": {\n            \"id\": 2\n        }\n    },\n    {\n        \"id\": 7,\n        \"grade\": 4,\n        \"enrolledAt\": \"2026-10-16T19:25:03.552Z\",\n        \"student\": {\n            \"id\": 6\n        },\n        \"course\": {\n            \"id\": 1\n        }\n    }\n]"
+            }
+          ]
+        },
+        {
+          "name": "Get enrollment",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/api/enrollments/2",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "api",
+                "enrollments",
+                "2"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "Get enrollment",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "http://localhost:8080/api/enrollments/2",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "8080",
+                  "path": [
+                    "api",
+                    "enrollments",
+                    "2"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "JSON",
+              "header": [
+                {
+                  "key": "Vary",
+                  "value": "Origin",
+                  "type": "text"
+                },
+                {
+                  "key": "Vary",
+                  "value": "Access-Control-Request-Method",
+                  "type": "text"
+                },
+                {
+                  "key": "Vary",
+                  "value": "Access-Control-Request-Headers",
+                  "type": "text"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json;charset=UTF-8",
+                  "type": "text"
+                },
+                {
+                  "key": "Transfer-Encoding",
+                  "value": "chunked",
+                  "type": "text"
+                },
+                {
+                  "key": "Date",
+                  "value": "Mon, 19 Oct 2026 08:05:32 GMT",
+                  "type": "text"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=60",
+                  "type": "text"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive",
+                  "type": "text"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"id\": 2,\n    \"grade\": 4,\n    \"enrolledAt\": \"2026-10-12T09:10:24.632Z\",\n    \"student\": {\n        \"id\": 2\n    },\n    \"course\": {\n        \"id\": 2\n    }\n}"
+            }
+          ]
+        },
+        {
+          "name": "Add enrollment",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "  { \"studentId\": 5, \"courseId\": 2, \"grade\": 3.5 }",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:8080/api/enrollments",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "api",
+                "enrollments"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "Add enrollment",
+              "originalRequest": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "  { \"studentId\": 5, \"courseId\": 2, \"grade\": 3.5 }",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "http://localhost:8080/api/enrollments",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "8080",
+                  "path": [
+                    "api",
+                    "enrollments"
+                  ]
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "_postman_previewlanguage": "JSON",
+              "header": [
+                {
+                  "key": "Vary",
+                  "value": "Origin",
+                  "type": "text"
+                },
+                {
+                  "key": "Vary",
+                  "value": "Access-Control-Request-Method",
+                  "type": "text"
+                },
+                {
+                  "key": "Vary",
+                  "value": "Access-Control-Request-Headers",
+                  "type": "text"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json;charset=UTF-8",
+                  "type": "text"
+                },
+                {
+                  "key": "Transfer-Encoding",
+                  "value": "chunked",
+                  "type": "text"
+                },
+                {
+                  "key": "Date",
+                  "value": "Mon, 19 Oct 2026 10:26:10 GMT",
+                  "type": "text"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=60",
+                  "type": "text"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive",
+                  "type": "text"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"id\": 19,\n    \"grade\": 3.5,\n    \"enrolledAt\": \"2026-10-19T10:26:10.322Z\",\n    \"student\": {\n        \"id\": 5\n    },\n    \"course\": {\n        \"id\": 2\n    }\n}"
+            }
+          ]
+        },
+        {
+          "name": "Update enrollment",
+          "request": {
+            "method": "PUT",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\"grade\":3}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:8080/api/enrollments/19",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "api",
+                "enrollments",
+                "19"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "Update enrollment",
+              "originalRequest": {
+                "method": "PUT",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\"grade\":3}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "http://localhost:8080/api/enrollments/19",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "8080",
+                  "path": [
+                    "api",
+                    "enrollments",
+                    "19"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "JSON",
+              "header": [
+                {
+                  "key": "Vary",
+                  "value": "Origin",
+                  "type": "text"
+                },
+                {
+                  "key": "Vary",
+                  "value": "Access-Control-Request-Method",
+                  "type": "text"
+                },
+                {
+                  "key": "Vary",
+                  "value": "Access-Control-Request-Headers",
+                  "type": "text"
+                },
+                {
+                  "key": "Location",
+                  "value": "http://localhost:8080/api/enrollments/19",
+                  "type": "text"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json;charset=UTF-8",
+                  "type": "text"
+                },
+                {
+                  "key": "Transfer-Encoding",
+                  "value": "chunked",
+                  "type": "text"
+                },
+                {
+                  "key": "Date",
+                  "value": "Mon, 19 Oct 2026 10:27:23 GMT",
+                  "type": "text"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=60",
+                  "type": "text"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive",
+                  "type": "text"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"id\": 19,\n    \"grade\": 3,\n    \"enrolledAt\": \"2026-10-19T10:26:10.322Z\",\n    \"student\": {\n        \"id\": 5\n    },\n    \"course\": {\n        \"id\": 2\n    }\n}"
+            }
+          ]
+        },
+        {
+          "name": "Delete enrollment",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/api/enrollments/19",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "api",
+                "enrollments",
+                "19"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "Delete enrollment",
+              "originalRequest": {
+                "method": "DELETE",
+                "header": [],
+                "url": {
+                  "raw": "http://localhost:8080/api/enrollments/19",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "8080",
+                  "path": [
+                    "api",
+                    "enrollments",
+                    "19"
+                  ]
+                }
+              },
+              "status": "No Content",
+              "code": 204,
+              "_postman_previewlanguage": "Text",
+              "header": [
+                {
+                  "key": "Vary",
+                  "value": "Origin",
+                  "type": "text"
+                },
+                {
+                  "key": "Vary",
+                  "value": "Access-Control-Request-Method",
+                  "type": "text"
+                },
+                {
+                  "key": "Vary",
+                  "value": "Access-Control-Request-Headers",
+                  "type": "text"
+                },
+                {
+                  "key": "Date",
+                  "value": "Mon, 19 Oct 2026 10:27:44 GMT",
+                  "type": "text"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=60",
+                  "type": "text"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive",
+                  "type": "text"
+                }
+              ],
+              "cookie": [],
+              "body": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
