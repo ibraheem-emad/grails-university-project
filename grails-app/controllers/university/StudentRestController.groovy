@@ -1,10 +1,8 @@
 package university
 
-import grails.rest.RestfulController
-import static org.springframework.http.HttpStatus.*
 import grails.converters.JSON
 
-class StudentRestController extends RestfulController<Student> {
+class StudentRestController extends ApiRestController<Course> {
 
     static responseFormats = ['json', 'html']
 
@@ -18,8 +16,8 @@ class StudentRestController extends RestfulController<Student> {
     @Override
     def show() {
         Student student = studentService.get(params.long('id'))
-        if (!student) {
-            respond([error: "Student ${params.id} not found."], status: NOT_FOUND)
+        if (!student){
+            notFound()
             return
         }
 
@@ -30,18 +28,31 @@ class StudentRestController extends RestfulController<Student> {
             studentNumber: student.studentNumber,
             active       : student.active,
             gpa          : enrollmentService.calculateGpa(student.id),
-            courses      : student.enrollments.sort { it.course.title }.collect { e ->
-                [
-                    id         : e.course.id,
-                    title      : e.course.title,
-                    code       : e.course.code,
-                    creditHours: e.course.creditHours,
-                    grade      : e.grade,
-                    enrolledAt : e.enrolledAt
-                ]
-            }
+            courses      : coursesOf(student)
         ]
 
            render result as JSON
+    }
+    
+    def courses() {
+        Student student = studentService.get(params.long('id'))
+        if (!student) {
+            notFound()
+            return
+        }
+        render coursesOf(student) as JSON
+    }
+
+    private List<Map> coursesOf(Student student) {
+        student.enrollments.sort { it.course.title }.collect { e ->
+            [
+                id         : e.course.id,
+                title      : e.course.title,
+                code       : e.course.code,
+                creditHours: e.course.creditHours,
+                grade      : e.grade,
+                enrolledAt : e.enrolledAt
+            ]
+        }
     }
 }

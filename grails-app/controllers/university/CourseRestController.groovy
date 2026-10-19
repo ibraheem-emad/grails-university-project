@@ -2,7 +2,7 @@
 
    import grails.rest.RestfulController
 
-   class CourseRestController extends RestfulController<Course> {
+   class CourseRestController extends ApiRestController<Course> {
 
        static responseFormats = ['json', 'html']
 

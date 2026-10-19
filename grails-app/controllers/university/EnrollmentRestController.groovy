@@ -1,9 +1,8 @@
 package university
 
-import grails.rest.RestfulController
 import static org.springframework.http.HttpStatus.*
 
-class EnrollmentRestController extends RestfulController<Enrollment> {
+class EnrollmentRestController  extends ApiRestController<Course> {
 
     static responseFormats = ['json', 'html']
 

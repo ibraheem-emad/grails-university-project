@@ -9,6 +9,7 @@ class UrlMappings {
             }
         }
 
+        "/api/students/$id/courses"(controller: 'studentRest', action: 'courses', method: 'GET')
         "/api/enrollments"(resources: 'enrollmentRest')
         "/api/courses"(resources: 'courseRest')
         "/api/students"(resources: 'studentRest')
