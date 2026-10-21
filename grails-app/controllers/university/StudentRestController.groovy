@@ -2,7 +2,7 @@ package university
 
 import grails.converters.JSON
 
-class StudentRestController extends ApiRestController<Course> {
+class StudentRestController extends ApiRestController<Student> {
 
     static responseFormats = ['json', 'html']
 
