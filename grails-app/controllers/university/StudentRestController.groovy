@@ -14,6 +14,19 @@ class StudentRestController extends ApiRestController<Student> {
     }
 
     @Override
+    protected List<Student> listAllResources(Map params) {
+        Student.createCriteria().list(max: params.max, offset: params.offset) {
+            if (params.name) {
+                ilike('name', "%${params.name}%".toString())
+            }
+            if (params.email) {
+                ilike('email', "%${params.email}%".toString())
+            }
+            order('name')
+        }
+    }
+
+    @Override
     def show() {
         Student student = studentService.get(params.long('id'))
         if (!student){
@@ -43,7 +56,7 @@ class StudentRestController extends ApiRestController<Student> {
         render coursesOf(student) as JSON
     }
 
-    private List<Map> coursesOf(Student student) {
+    List<Map> coursesOf(Student student) {
         student.enrollments.sort { it.course.title }.collect { e ->
             [
                 id         : e.course.id,
