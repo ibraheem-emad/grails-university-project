@@ -11,6 +11,25 @@
       "item": [
         {
           "name": "List students",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "   pm.test(\"Status is 200\", function () {\r",
+                  "       pm.response.to.have.status(200);\r",
+                  "   });\r",
+                  "\r",
+                  "   pm.test(\"Response has 'data' key\", function () {\r",
+                  "       const json = pm.response.json();\r",
+                  "       pm.expect(json).to.have.property(\"data\");\r",
+                  "   });"
+                ],
+                "type": "text/javascript",
+                "packages": {}
+              }
+            }
+          ],
           "request": {
             "method": "GET",
             "header": [],
@@ -584,6 +603,25 @@
       "item": [
         {
           "name": "List courses",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "   pm.test(\"Status is 200\", function () {\r",
+                  "       pm.response.to.have.status(200);\r",
+                  "   });\r",
+                  "\r",
+                  "   pm.test(\"Response has 'data' key\", function () {\r",
+                  "       const json = pm.response.json();\r",
+                  "       pm.expect(json).to.have.property(\"data\");\r",
+                  "   });"
+                ],
+                "type": "text/javascript",
+                "packages": {}
+              }
+            }
+          ],
           "request": {
             "method": "GET",
             "header": [],
@@ -1066,6 +1104,25 @@
       "item": [
         {
           "name": "List enrollments",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "   pm.test(\"Status is 200\", function () {\r",
+                  "       pm.response.to.have.status(200);\r",
+                  "   });\r",
+                  "\r",
+                  "   pm.test(\"Response has 'data' key\", function () {\r",
+                  "       const json = pm.response.json();\r",
+                  "       pm.expect(json).to.have.property(\"data\");\r",
+                  "   });"
+                ],
+                "type": "text/javascript",
+                "packages": {}
+              }
+            }
+          ],
           "request": {
             "method": "GET",
             "header": [],
@@ -1537,6 +1594,17 @@
           ]
         }
       ]
+    },
+    {
+      "name": "test",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": ""
+        }
+      },
+      "response": []
     }
   ]
 }
