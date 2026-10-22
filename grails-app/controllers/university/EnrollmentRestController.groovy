@@ -14,9 +14,8 @@ class EnrollmentRestController  extends ApiRestController<Course> {
 
     @Override
     def save() {
-        def body = request.JSON
-
         try {
+            def body = request.JSON
             Enrollment e = enrollmentService.enroll(body.studentId as Long, body.courseId as Long, body.grade as Double)
             respond e, [status: CREATED]
         } catch (IllegalStateException ex) {

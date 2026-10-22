@@ -56,6 +56,19 @@ class StudentRestController extends ApiRestController<Student> {
         render coursesOf(student) as JSON
     }
 
+    def gpa() {
+        Student student = studentService.get(params.long('id'))
+        if (!student) {
+            notFound()
+            return
+        }
+        render([
+            studentId: student.id,
+            name     : student.name,
+            gpa      : enrollmentService.calculateGpa(student.id)
+        ] as JSON)
+    }
+
     List<Map> coursesOf(Student student) {
         student.enrollments.sort { it.course.title }.collect { e ->
             [
