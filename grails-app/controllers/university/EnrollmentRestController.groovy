@@ -2,7 +2,7 @@ package university
 
 import static org.springframework.http.HttpStatus.*
 
-class EnrollmentRestController  extends ApiRestController<Course> {
+class EnrollmentRestController extends ApiRestController<Enrollment> {
 
     static responseFormats = ['json', 'html']
 
