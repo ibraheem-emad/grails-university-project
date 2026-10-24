@@ -47,6 +47,7 @@ class User implements Serializable {
 	}
 
 	static mapping = {
+		autowire true
 	    table name: '`user`'
 		password column: '`password`'
 	}
