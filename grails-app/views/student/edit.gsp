@@ -31,17 +31,24 @@
                     <div class="message" role="status">${flash.message}</div>
                 </g:if>
                 
-                <g:form resource="${this.student}" controller="${controllerName}" method="PUT">
-                    <g:hiddenField name="version" value="${this.student?.version}" />
+                <g:uploadForm resource="${this.student}" controller="${controllerName}" method="PUT">                    <g:hiddenField name="version" value="${this.student?.version}" />
                     <fieldset class="form">
                            <g:render template="form" model="[student: student]"/>
+                           <div class="mb-3">
+                                <label for="profilePhoto" class="form-label">Profile photo</label>
+                                <input type="file" name="profilePhoto" id="profilePhoto" class="form-control" accept="image/*"/>
+                                <g:hasErrors bean="${student}" field="profilePhoto">
+                                    <div class="invalid-feedback d-block"><g:fieldError bean="${student}" field="profilePhoto"/></div>
+                                </g:hasErrors>
+                                <div class="form-text">PNG or JPG, up to 2 MB.</div>
+                            </div>
                     </fieldset>
                     <fieldset class="bg-body-tertiary">
                         <button class="btn btn-outline-primary" type="submit">
                             <i class="bi-floppy"></i> ${message(code: 'default.button.update.label', default: 'Update')}
                         </button>
                     </fieldset>
-                </g:form>
+                </g:uploadForm>
             </div>
         </section>
     </div>

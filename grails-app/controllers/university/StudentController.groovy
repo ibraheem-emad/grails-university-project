@@ -3,6 +3,8 @@ package university
 import grails.validation.ValidationException
 import static org.springframework.http.HttpStatus.*
 import grails.plugin.springsecurity.annotation.Secured
+import org.springframework.web.multipart.MultipartFile
+import org.springframework.web.multipart.MultipartHttpServletRequest
 
 @Secured('isAuthenticated()')
 class StudentController {
@@ -69,6 +71,21 @@ class StudentController {
         if (student == null) {
             notFound()
             return
+        }
+
+        if (request instanceof MultipartHttpServletRequest) {
+            MultipartFile photo = request.getFile('profilePhoto')
+            if (photo && !photo.empty) {
+                if (!photo.contentType?.startsWith('image/')) {
+                    student.errors.rejectValue('profilePhoto', 'student.profilePhoto.type', 'Only image files are allowed.')
+                } else if (photo.size >= 2 * 1024 * 1024) {
+                    student.errors.rejectValue('profilePhoto', 'student.profilePhoto.size', 'The photo must be smaller than 2 MB.')
+                }
+                if (student.errors.hasFieldErrors('profilePhoto')) {
+                    respond student.errors, view: 'edit'
+                    return
+                }
+            }
         }
 
         try {

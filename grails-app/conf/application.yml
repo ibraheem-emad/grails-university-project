@@ -91,3 +91,10 @@ environments:
 logging:
     level:
         university: INFO
+
+---
+grails:
+    controllers:
+        upload:
+            maxFileSize: 5242880
+            maxRequestSize: 6291456
