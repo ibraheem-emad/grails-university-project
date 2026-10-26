@@ -31,6 +31,7 @@ class EnrollmentController {
         }
     }
 
+    @Secured(['ROLE_ADMIN'])
     def delete(Long id) {
         try {
             enrollmentService.unenroll(id)

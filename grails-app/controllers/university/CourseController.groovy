@@ -72,6 +72,7 @@ class CourseController {
         }
     }
 
+    @Secured(['ROLE_ADMIN'])
     def delete(Long id) {
         if (id == null) {
             notFound()
