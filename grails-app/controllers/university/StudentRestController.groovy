@@ -1,7 +1,9 @@
 package university
 
 import grails.converters.JSON
+import grails.plugin.springsecurity.annotation.Secured
 
+@Secured('isAuthenticated()')
 class StudentRestController extends ApiRestController<Student> {
 
     static responseFormats = ['json', 'html']

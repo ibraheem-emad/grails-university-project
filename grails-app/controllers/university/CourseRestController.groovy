@@ -1,12 +1,14 @@
-   package university
+package university
 
-   import grails.rest.RestfulController
+import grails.rest.RestfulController
+import grails.plugin.springsecurity.annotation.Secured
 
-   class CourseRestController extends ApiRestController<Course> {
+@Secured('isAuthenticated()')
+class CourseRestController extends ApiRestController<Course> {
 
-       static responseFormats = ['json', 'html']
+    static responseFormats = ['json', 'html']
 
-       CourseRestController() {
-           super(Course)
-       }
-   }
+    CourseRestController() {
+        super(Course)
+    }
+}

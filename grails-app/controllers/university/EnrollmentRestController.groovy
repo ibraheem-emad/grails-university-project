@@ -1,7 +1,9 @@
 package university
 
 import static org.springframework.http.HttpStatus.*
+import grails.plugin.springsecurity.annotation.Secured
 
+@Secured('isAuthenticated()')
 class EnrollmentRestController extends ApiRestController<Enrollment> {
 
     static responseFormats = ['json', 'html']

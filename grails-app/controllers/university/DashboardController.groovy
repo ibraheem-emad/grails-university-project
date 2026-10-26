@@ -1,5 +1,7 @@
 package university
+import grails.plugin.springsecurity.annotation.Secured
 
+@Secured('isAuthenticated()')
 class DashboardController {
 
     StudentService studentService

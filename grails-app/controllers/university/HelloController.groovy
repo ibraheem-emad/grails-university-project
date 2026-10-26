@@ -1,5 +1,7 @@
 package university
+import grails.plugin.springsecurity.annotation.Secured
 
+@Secured('isAuthenticated()')
 class HelloController {
 
     // remove the slashes from the following line to show the render func text, put them back to see the view text

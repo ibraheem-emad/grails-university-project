@@ -2,7 +2,9 @@ package university
 
 import grails.validation.ValidationException
 import static org.springframework.http.HttpStatus.*
+import grails.plugin.springsecurity.annotation.Secured
 
+@Secured('isAuthenticated()')
 class CourseController {
 
     CourseService courseService
