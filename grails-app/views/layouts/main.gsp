@@ -27,6 +27,24 @@
                     <li class="nav-item"><g:link class="nav-link ${controllerName == 'course' ? 'active' : ''}" controller="course">Courses</g:link></li>
                     <li class="nav-item"><g:link class="nav-link ${controllerName == 'enrollment' ? 'active' : ''}" controller="enrollment">Enrollments</g:link></li>
                     <li class="nav-item"><g:link class="nav-link ${controllerName == 'hello' ? 'active' : ''}" controller="hello">Hello</g:link></li>
+
+                    <sec:ifLoggedIn>
+                        <li class="nav-item">
+                            <span class="navbar-text text-white ms-md-3">
+                                Welcome, <sec:loggedInUserInfo field="username"/>
+                            </span>
+                        </li>
+                        <li class="nav-item my-2 my-md-0">
+                            <form action="${createLink(uri: '/logout')}" method="POST">
+                                <button type="submit" class="btn btn-outline-light btn-sm ms-md-3">Log out</button>
+                            </form>
+                        </li>
+                    </sec:ifLoggedIn>
+                    <sec:ifNotLoggedIn>
+                        <li class="nav-item">
+                            <g:link class="nav-link" controller="login" action="auth">Log in</g:link>
+                        </li>
+                    </sec:ifNotLoggedIn>
                 </ul>
             </div>
         </div>
