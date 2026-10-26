@@ -19,10 +19,12 @@
                     <td>${e.grade}</td>
                     <td><g:formatDate date="${e.enrolledAt}" format="dd-MM-yyyy"/></td>
                     <td>
-                        <g:link action="delete" id="${e.id}" class="text-danger"
-                                onclick="return confirm('${message(code: 'default.button.delete.confirm.message', default: 'Are you sure?')}');">
-                            Delete
-                        </g:link>
+                        <sec:ifAnyGranted roles="ROLE_ADMIN">
+                            <g:link action="delete" id="${e.id}" class="text-danger"
+                                    onclick="return confirm('${message(code: 'default.button.delete.confirm.message', default: 'Are you sure?')}');">
+                                Delete
+                            </g:link>
+                        </sec:ifAnyGranted>
                     </td>
                 </tr>
             </g:each>
