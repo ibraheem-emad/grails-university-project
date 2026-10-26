@@ -85,6 +85,8 @@ class StudentController {
                     respond student.errors, view: 'edit'
                     return
                 }
+                student.profilePhoto = photo.bytes
+                student.contentType = photo.contentType
             }
         }
 
