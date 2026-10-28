@@ -133,4 +133,16 @@ class StudentController {
             '*'{ render status: NOT_FOUND }
         }
     }
+
+    def renderPhoto(Long id) {
+        Student student = studentService.get(id)
+        if (!student?.profilePhoto) {
+            response.sendError(404)
+            return
+        }
+        response.contentType = student.contentType ?: 'application/octet-stream'
+        response.contentLength = student.profilePhoto.length
+        response.outputStream << student.profilePhoto
+        response.outputStream.flush()
+    }
 }
