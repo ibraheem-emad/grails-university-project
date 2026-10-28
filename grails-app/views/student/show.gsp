@@ -30,7 +30,14 @@
                 <g:if test="${flash.message}">
                     <div class="alert alert-primary" role="alert"><i class="bi-info-circle"></i> ${flash.message}</div>
                 </g:if>
-                <f:display bean="student" listClass="container" listItemClass="row mb-3" labelClass="form-label col-sm-3 text-sm-end" valueClass="col-sm-9" />
+                <g:if test="${student.profilePhoto}">
+                    <img src="${createLink(controller: 'student', action: 'renderPhoto', id: student.id)}"
+                        alt="Photo of ${student.name}" class="img-thumbnail mb-3" style="max-width: 200px;"/>
+                </g:if>
+                <g:else>
+                    <p class="text-muted">No photo uploaded.</p>
+                </g:else>
+                <f:display bean="student" listClass="container" listItemClass="row mb-3" labelClass="form-label col-sm-3 text-sm-end" valueClass="col-sm-9" except="['profilePhoto', 'contentType', 'enrollments']" />
                 <p class="mt-3"><strong>GPA:</strong> <g:formatNumber number="${gpa}" format="0.00"/></p>
                 <h3 class="mt-4">Enrolled Courses</h3>
                 <g:if test="${student.enrollments}">
