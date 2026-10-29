@@ -98,3 +98,8 @@ grails:
         upload:
             maxFileSize: 5242880
             maxRequestSize: 6291456
+
+---
+university:
+    cleanup:
+        dryRun: true
