@@ -15,18 +15,23 @@
 <header>
     <nav class="navbar navbar-expand-md bg-primary" data-bs-theme="dark">
         <div class="container">
-            <g:link class="navbar-brand fw-semibold" uri="/">University</g:link>
+            <g:link class="navbar-brand fw-semibold" controller="dashboard">University</g:link>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav"
                     aria-controls="mainNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="mainNav">
                 <ul class="navbar-nav ms-auto">
-                    <li class="nav-item"><g:link class="nav-link ${controllerName == 'dashboard' ? 'active' : ''}" controller="dashboard">Dashboard</g:link></li>
-                    <li class="nav-item"><g:link class="nav-link ${controllerName == 'student' ? 'active' : ''}" controller="student">Students</g:link></li>
-                    <li class="nav-item"><g:link class="nav-link ${controllerName == 'course' ? 'active' : ''}" controller="course">Courses</g:link></li>
-                    <li class="nav-item"><g:link class="nav-link ${controllerName == 'enrollment' ? 'active' : ''}" controller="enrollment">Enrollments</g:link></li>
-                    <li class="nav-item"><g:link class="nav-link ${controllerName == 'hello' ? 'active' : ''}" controller="hello">Hello</g:link></li>
+                    <sec:ifLoggedIn>
+                        <li class="nav-item"><g:link class="nav-link ${controllerName == 'dashboard' ? 'active' : ''}" controller="dashboard">Dashboard</g:link></li>
+                        <li class="nav-item"><g:link class="nav-link ${controllerName == 'student' ? 'active' : ''}" controller="student">Students</g:link></li>
+                        <li class="nav-item"><g:link class="nav-link ${controllerName == 'course' ? 'active' : ''}" controller="course">Courses</g:link></li>
+                        <li class="nav-item"><g:link class="nav-link ${controllerName == 'enrollment' ? 'active' : ''}" controller="enrollment">Enrollments</g:link></li>
+                        <li class="nav-item"><g:link class="nav-link ${controllerName == 'hello' ? 'active' : ''}" controller="hello">Hello</g:link></li>
+                        <sec:ifAnyGranted roles="ROLE_ADMIN">
+                            <li class="nav-item"><g:link class="nav-link ${controllerName == 'admin' ? 'active' : ''}" controller="admin">Admin</g:link></li>
+                        </sec:ifAnyGranted>
+                    </sec:ifLoggedIn>
 
                     <sec:ifLoggedIn>
                         <li class="nav-item">

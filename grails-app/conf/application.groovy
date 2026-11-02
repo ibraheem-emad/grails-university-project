@@ -4,6 +4,8 @@
 grails.plugin.springsecurity.userLookup.userDomainClassName = 'university.User'
 grails.plugin.springsecurity.userLookup.authorityJoinClassName = 'university.UserRole'
 grails.plugin.springsecurity.authority.className = 'university.Role'
+grails.plugin.springsecurity.successHandler.defaultTargetUrl = '/dashboard'
+grails.plugin.springsecurity.successHandler.alwaysUseDefault = true
 grails.plugin.springsecurity.useBasicAuth = true
 grails.plugin.springsecurity.basic.realmName = 'University API'
 grails.plugin.springsecurity.controllerAnnotations.staticRules = [

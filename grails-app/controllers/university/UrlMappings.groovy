@@ -14,7 +14,7 @@ class UrlMappings {
         "/api/enrollments"(resources: 'enrollmentRest')
         "/api/courses"(resources: 'courseRest')
         "/api/students"(resources: 'studentRest')
-        "/"(view:"/index")
+        "/"(controller: 'dashboard')
         "500"(view:'/error')
         "404"(view:'/notFound')
     }
